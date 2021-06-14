@@ -11,6 +11,8 @@ set -g bell-action any
 # Keep your finger on ctrl, or don't
 bind-key ^D detach-client
 
+bind r source-file ~/.tmux.conf \; display-message "~/.tmux.conf reloaded"
+
 # Create splits and vertical splits
 
 # Pane resize in all four directions using vi bindings.
@@ -25,7 +27,7 @@ bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iq v
 bind -n C-j run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-j) || tmux select-pane -D"
 bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-k) || tmux select-pane -U"
 bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R"
-bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys 'C-\\') || tmux select-pane -l"
+bind -n C-\\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys 'C-\\') || tmux select-pane -l"
 
 bind C-l send-keys 'C-l'
 
@@ -44,6 +46,8 @@ unbind-key -T copy-mode-vi ]     ; bind-key -T copy-mode-vi ] send-keys -X copy-
 # set first window to index 1 (not 0) to map more to the keyboard layout...
 set-option -g base-index 1
 set-window-option -g pane-base-index 1
+
+set -g renumber-windows on
 
 # Toggle mouse on
 bind m \

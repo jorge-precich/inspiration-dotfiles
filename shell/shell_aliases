@@ -43,6 +43,18 @@ alias tml="tmux list-sessions"
 alias tma="tmux -2 attach -t $1"
 alias tmk="tmux kill-session -t $1"
 
+alias gbdm="git branch --merged | egrep -v \"(^\*|main|staging|production)\" | xargs git branch -d"
+alias sz="source ~/.zshrc"
+alias t="npm run test"
+alias dt="node --trace-warnings --inspect-brk node_modules/.bin/jest --runInBand $1"
+alias rspec="bundle exec rspec"
+alias sidekiq="bundle exec sidekiq"
+alias rubocop="bundle exec rubocop"
+alias rake="bundle exec rake"
+alias salias="v $HOME/.dotfiles/shell/shell_aliases"
+alias gcfd="git clean -fd"
+alias cpenv="echo \"source <(sed -E -n 's/[^#]+/export &/ p' /opt/elasticbeanstalk/deployment/custom_env_var) && cd /var/app/current && bundle exec rails c\" | pbcopy"
+alias swagger="rake rswag:specs:swaggerize PATTERN=\"spec/swagger/**/*_spec.rb\""
 
 #functions
 function feature() {
